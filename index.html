@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nike Montecer Store - Tienda Oficial</title>
+    <!-- Link al archivo CSS -->
+    <link rel="stylesheet" href="styles.css">
+    <!-- Font Awesome para iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- NAVEGACIÓN PRINCIPAL -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <!-- Logo de la tienda -->
+            <div class="logo">
+                <i class="fas fa-running"></i>
+                <span>NIKE MONTECER</span>
+            </div>
+            
+            <!-- Menú de navegación -->
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#home" class="nav-link active">Inicio</a></li>
+                <li><a href="#categories" class="nav-link">Categorías</a></li>
+                <li><a href="#products" class="nav-link">Productos</a></li>
+                <li><a href="#about" class="nav-link">Sobre Nosotros</a></li>
+                <li><a href="#contact" class="nav-link">Contacto</a></li>
+            </ul>
+            
+            <!-- Iconos de usuario y carrito -->
+            <div class="nav-icons">
+                <button class="icon-btn" id="loginBtn">
+                    <i class="fas fa-user"></i>
+                </button>
+                <button class="icon-btn cart-btn" id="cartBtn">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count" id="cartCount">0</span>
+                </button>
+                <button class="menu-toggle" id="menuToggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- SECCIÓN HERO - BANNER PRINCIPAL -->
+    <section id="home" class="hero">
+        <!-- Fondo animado con overlay -->
+        <div class="hero-background"></div>
+        <div class="hero-overlay"></div>
+        
+        <!-- Partículas flotantes decorativas -->
+        <div class="hero-particles">
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+        </div>
+        
+        <!-- Contenido principal del hero -->
+        <div class="hero-content">
+            <h1 class="hero-title animate-fade-in">NIKE MONTECER STORE</h1>
+            <p class="hero-subtitle animate-fade-in-delay">La mejor selección de zapatillas Nike en Panamá</p>
+            
+            <!-- Banner de envíos destacado -->
+            <div class="shipping-banner animate-fade-in-delay-2">
+                <i class="fas fa-shipping-fast"></i>
+                <span>ENVÍOS A TODAS LAS PROVINCIAS DE PANAMÁ</span>
+                <i class="fas fa-check-circle"></i>
+            </div>
+            
+            <p class="hero-description animate-fade-in-delay-3">
+                Encuentra el calzado perfecto para cada momento de tu vida. Estilo, comodidad y rendimiento en cada paso.
+            </p>
+            <button class="cta-button animate-fade-in-delay-4" onclick="scrollToSection('products')">
+                Explorar Productos
+                <i class="fas fa-arrow-right"></i>
+            </button>
+        </div>
+        
+        <!-- Indicador de scroll -->
+        <div class="scroll-indicator">
+            <i class="fas fa-chevron-down"></i>
+        </div>
+    </section>
+
+    <!-- SECCIÓN DE CATEGORÍAS -->
+    <section id="categories" class="categories">
+        <div class="container">
+            <h2 class="section-title">Nuestras Categorías</h2>
+            <p class="section-subtitle">Encuentra el estilo perfecto para ti y tu familia</p>
+            
+            <!-- Banner informativo de envíos -->
+            <div class="info-banner">
+                <div class="info-banner-content">
+                    <i class="fas fa-truck"></i>
+                    <div>
+                        <strong>Envíos a Todo Panamá</strong>
+                        <p>Entregamos en las 10 provincias | Desde $5.00 | 2-5 días hábiles</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="categories-grid">
+                <!-- Categoría Hombre -->
+                <div class="category-card" onclick="filterByCategory('hombre')">
+                    <div class="category-image">
+                        <i class="fas fa-male"></i>
+                    </div>
+                    <h3>Hombre</h3>
+                    <p>Zapatillas deportivas y urbanas</p>
+                </div>
+                
+                <!-- Categoría Mujer -->
+                <div class="category-card" onclick="filterByCategory('mujer')">
+                    <div class="category-image">
+                        <i class="fas fa-female"></i>
+                    </div>
+                    <h3>Mujer</h3>
+                    <p>Estilo y comodidad</p>
+                </div>
+                
+                <!-- Categoría Niño -->
+                <div class="category-card" onclick="filterByCategory('nino')">
+                    <div class="category-image">
+                        <i class="fas fa-child"></i>
+                    </div>
+                    <h3>Niño</h3>
+                    <p>Diseños para pequeños campeones</p>
+                </div>
+                
+                <!-- Categoría Niña -->
+                <div class="category-card" onclick="filterByCategory('nina')">
+                    <div class="category-image">
+                        <i class="fas fa-child"></i>
+                    </div>
+                    <h3>Niña</h3>
+                    <p>Color y diversión</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN DE PRODUCTOS -->
+    <section id="products" class="products">
+        <div class="container">
+            <h2 class="section-title">Nuestros Productos</h2>
+            
+            <!-- Filtros de categoría -->
+            <div class="filter-buttons">
+                <button class="filter-btn active" onclick="filterByCategory('all')">Todos</button>
+                <button class="filter-btn" onclick="filterByCategory('hombre')">Hombre</button>
+                <button class="filter-btn" onclick="filterByCategory('mujer')">Mujer</button>
+                <button class="filter-btn" onclick="filterByCategory('nino')">Niño</button>
+                <button class="filter-btn" onclick="filterByCategory('nina')">Niña</button>
+            </div>
+            
+            <!-- Grid de productos (se llena dinámicamente con JavaScript) -->
+            <div class="products-grid" id="productsGrid">
+                <!-- Los productos se cargan aquí dinámicamente -->
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN SOBRE NOSOTROS -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title">Sobre Nike Montecer Store</h2>
+            
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Nuestra Misión</h3>
+                    <p>
+                        En Nike Montecer Store, nuestra misión es inspirar y equipar a cada atleta del mundo. 
+                        Creemos que si tienes un cuerpo, eres un atleta. Por eso ofrecemos la más amplia selección 
+                        de zapatillas Nike para toda la familia, combinando innovación, estilo y rendimiento.
+                    </p>
+                    
+                    <h3>Nuestra Visión</h3>
+                    <p>
+                        Ser la tienda de referencia en Panamá para todos aquellos que buscan calidad, autenticidad 
+                        y excelencia en calzado deportivo. Aspiramos a crear una comunidad donde el deporte, el 
+                        estilo de vida saludable y la pasión por la superación personal se unan.
+                    </p>
+                    
+                    <h3>Nuestros Valores</h3>
+                    <ul>
+                        <li><strong>Autenticidad:</strong> Productos 100% originales</li>
+                        <li><strong>Innovación:</strong> Las últimas tecnologías en calzado</li>
+                        <li><strong>Comunidad:</strong> Apoyamos el deporte local</li>
+                        <li><strong>Excelencia:</strong> Servicio al cliente de primera clase</li>
+                    </ul>
+                </div>
+                
+                <div class="about-stats">
+                    <div class="stat-card">
+                        <i class="fas fa-users"></i>
+                        <h4>5000+</h4>
+                        <p>Clientes Satisfechos</p>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-box"></i>
+                        <h4>200+</h4>
+                        <p>Productos Disponibles</p>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-star"></i>
+                        <h4>4.9/5</h4>
+                        <p>Calificación Promedio</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN DE REFLEXIÓN -->
+    <section class="reflection">
+        <div class="container">
+            <div class="reflection-content">
+                <i class="fas fa-quote-left quote-icon"></i>
+                <h2>Más que Zapatillas, un Estilo de Vida</h2>
+                <p>
+                    El deporte no es solo una actividad, es una forma de vida. Cada paso que das, cada meta que alcanzas, 
+                    cada obstáculo que superas, te convierte en una mejor versión de ti mismo. Las zapatillas que eliges 
+                    no son solo calzado, son tu compañero en el camino hacia tus sueños.
+                </p>
+                <p>
+                    En Nike Montecer Store creemos en el poder del esfuerzo, la dedicación y la pasión. Creemos que todos 
+                    llevamos un atleta dentro, esperando ser descubierto. Ya sea que corras maratones, juegues con tus hijos 
+                    en el parque, o simplemente busques comodidad en tu día a día, tenemos el calzado perfecto para ti.
+                </p>
+                <p class="reflection-quote">
+                    <strong>"Just Do It"</strong> - No es solo un eslogan, es una invitación a vivir sin límites, 
+                    a perseguir tus metas y a nunca rendirte. Porque el único obstáculo entre tú y tus sueños es 
+                    la decisión de empezar.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN DE CONTACTO -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Contacto y Soporte</h2>
+            
+            <div class="contact-grid">
+                <!-- Información de contacto -->
+                <div class="contact-info">
+                    <h3>Información de la Tienda</h3>
+                    
+                    <div class="info-item">
+                        <i class="fas fa-user"></i>
+                        <div>
+                            <strong>Propietario</strong>
+                            <p>Edgar Montececer</p>
+                        </div>
+                    </div>
+                    
+                    <div class="info-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <strong>Correo Electrónico</strong>
+                            <p>montecer@gmail.com</p>
+                        </div>
+                    </div>
+                    
+                    <div class="info-item">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <strong>Teléfono</strong>
+                            <p>6885-6789</p>
+                        </div>
+                    </div>
+                    
+                    <div class="info-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <strong>Ubicación</strong>
+                            <p>Changuinola, Bocas del Toro, Panamá</p>
+                        </div>
+                    </div>
+                    
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Formulario de contacto -->
+                <div class="contact-form">
+                    <h3>Envíanos un Mensaje</h3>
+                    <form id="contactForm">
+                        <input type="text" placeholder="Nombre Completo" required>
+                        <input type="email" placeholder="Correo Electrónico" required>
+                        <input type="tel" placeholder="Teléfono">
+                        <textarea placeholder="Mensaje" rows="5" required></textarea>
+                        <button type="submit" class="submit-btn">
+                            Enviar Mensaje
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Nike Montecer Store</h4>
+                    <p>Tu tienda de confianza para zapatillas Nike en Panamá</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Enlaces Rápidos</h4>
+                    <ul>
+                        <li><a href="#home">Inicio</a></li>
+                        <li><a href="#products">Productos</a></li>
+                        <li><a href="#about">Sobre Nosotros</a></li>
+                        <li><a href="#contact">Contacto</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Horario</h4>
+                    <p>Lunes a Viernes: 9:00 AM - 7:00 PM</p>
+                    <p>Sábados: 9:00 AM - 6:00 PM</p>
+                    <p>Domingos: 10:00 AM - 4:00 PM</p>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2026 Nike Montecer Store. Todos los derechos reservados.</p>
+                <p class="disclaimer">Sitio con fines educativos. Nike es una marca registrada.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- MODAL DE LOGIN -->
+    <div class="modal" id="loginModal">
+        <div class="modal-content">
+            <span class="modal-close" onclick="closeModal('loginModal')">&times;</span>
+            <h2>Iniciar Sesión</h2>
+            
+            <form id="loginForm">
+                <input type="email" placeholder="Correo Electrónico" required>
+                <input type="password" placeholder="Contraseña" required>
+                <button type="submit" class="modal-btn">Iniciar Sesión</button>
+            </form>
+            
+            <p class="modal-footer">
+                ¿No tienes cuenta? 
+                <a href="#" onclick="switchModal('loginModal', 'registerModal')">Regístrate</a>
+            </p>
+        </div>
+    </div>
+
+    <!-- MODAL DE REGISTRO -->
+    <div class="modal" id="registerModal">
+        <div class="modal-content">
+            <span class="modal-close" onclick="closeModal('registerModal')">&times;</span>
+            <h2>Crear Cuenta</h2>
+            
+            <form id="registerForm">
+                <input type="text" placeholder="Nombre Completo" required>
+                <input type="email" placeholder="Correo Electrónico" required>
+                <input type="password" placeholder="Contraseña" required>
+                <input type="password" placeholder="Confirmar Contraseña" required>
+                <button type="submit" class="modal-btn">Registrarse</button>
+            </form>
+            
+            <p class="modal-footer">
+                ¿Ya tienes cuenta? 
+                <a href="#" onclick="switchModal('registerModal', 'loginModal')">Inicia Sesión</a>
+            </p>
+        </div>
+    </div>
+
+    <!-- MODAL DE PRODUCTO -->
+    <div class="modal" id="productModal">
+        <div class="modal-content modal-large">
+            <span class="modal-close" onclick="closeModal('productModal')">&times;</span>
+            <div class="product-modal-content" id="productModalContent">
+                <!-- Se llena dinámicamente -->
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL DE CARRITO -->
+    <div class="modal" id="cartModal">
+        <div class="modal-content modal-large">
+            <span class="modal-close" onclick="closeModal('cartModal')">&times;</span>
+            <h2>Carrito de Compras</h2>
+            
+            <div id="cartItems" class="cart-items">
+                <!-- Se llena dinámicamente -->
+            </div>
+            
+            <div class="cart-summary">
+                <h3>Resumen del Pedido</h3>
+                <div class="summary-row">
+                    <span>Subtotal:</span>
+                    <span id="cartSubtotal">$0.00</span>
+                </div>
+                <div class="summary-row">
+                    <span>Envío:</span>
+                    <span id="cartShipping">$5.00</span>
+                </div>
+                <div class="summary-row total">
+                    <span>Total:</span>
+                    <span id="cartTotal">$0.00</span>
+                </div>
+                <button class="checkout-btn" onclick="openCheckout()">
+                    Proceder al Pago
+                    <i class="fas fa-arrow-right"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL DE CHECKOUT -->
+    <div class="modal" id="checkoutModal">
+        <div class="modal-content modal-large">
+            <span class="modal-close" onclick="closeModal('checkoutModal')">&times;</span>
+            <h2>Finalizar Compra</h2>
+            
+            <div class="checkout-content">
+                <form id="checkoutForm">
+                    <h3><i class="fas fa-shipping-fast"></i> Información de Entrega</h3>
+                    <input type="text" id="fullName" placeholder="Nombre Completo" required>
+                    <input type="email" id="email" placeholder="Correo Electrónico" required>
+                    <input type="tel" id="phone" placeholder="Teléfono (Ej: 6885-6789)" required>
+                    <input type="text" id="address" placeholder="Dirección Completa" required>
+                    
+                    <label for="province"><strong>Provincia de Entrega:</strong></label>
+                    <select id="province" required onchange="calculateShipping()">
+                        <option value="">Selecciona tu provincia</option>
+                        <option value="bocas-del-toro" data-shipping="5">Bocas del Toro - $5.00</option>
+                        <option value="chiriqui" data-shipping="8">Chiriquí - $8.00</option>
+                        <option value="veraguas" data-shipping="10">Veraguas - $10.00</option>
+                        <option value="cocle" data-shipping="12">Coclé - $12.00</option>
+                        <option value="colon" data-shipping="12">Colón - $12.00</option>
+                        <option value="panama" data-shipping="15">Panamá - $15.00</option>
+                        <option value="panama-oeste" data-shipping="15">Panamá Oeste - $15.00</option>
+                        <option value="herrera" data-shipping="12">Herrera - $12.00</option>
+                        <option value="los-santos" data-shipping="13">Los Santos - $13.00</option>
+                        <option value="darien" data-shipping="20">Darién - $20.00</option>
+                    </select>
+                    
+                    <div class="shipping-info" id="shippingInfo" style="display:none;">
+                        <i class="fas fa-info-circle"></i>
+                        <p>Tiempo de entrega: <strong>2-5 días hábiles</strong></p>
+                    </div>
+                    
+                    <h3><i class="fas fa-credit-card"></i> Método de Pago</h3>
+                    <select id="paymentMethod" required>
+                        <option value="">Selecciona un método</option>
+                        <option value="visa">💳 Tarjeta VISA</option>
+                        <option value="yappy">📱 Yappy</option>
+                        <option value="paypal">🅿️ PayPal</option>
+                    </select>
+                    
+                    <div id="paymentDetails"></div>
+                    
+                    <button type="submit" class="checkout-btn">
+                        <i class="fas fa-check-circle"></i>
+                        Confirmar Compra
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL DE CONFIRMACIÓN -->
+    <div class="modal" id="confirmationModal">
+        <div class="modal-content">
+            <div class="confirmation-content">
+                <i class="fas fa-check-circle success-icon"></i>
+                <h2>¡Compra Exitosa!</h2>
+                <p>Tu pedido ha sido procesado correctamente.</p>
+                <p>Recibirás un correo de confirmación en breve.</p>
+                <p><strong>Número de pedido:</strong> <span id="orderNumber"></span></p>
+                <p><strong>Provincia de entrega:</strong> <span id="deliveryProvince"></span></p>
+                <p><strong>Costo de envío:</strong> <span id="deliveryShipping"></span></p>
+                <p><strong>Tiempo estimado:</strong> 2-5 días hábiles</p>
+                <div class="confirmation-details">
+                    <h3>Detalles del Pedido:</h3>
+                    <div id="orderSummary"></div>
+                </div>
+                <button class="modal-btn" onclick="closeModal('confirmationModal')">Continuar Comprando</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Link al archivo JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
